@@ -1,24 +1,12 @@
 {
-  "name": "discordbot",
+  "name": "discord-nostalgia-bot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TimmAdriansen/discordbot.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TimmAdriansen/discordbot/issues"
-  },
-  "homepage": "https://github.com/TimmAdriansen/discordbot#readme",
-  "description": "",
   "dependencies": {
-    "discord.js": "^14.19.3",
-    "dotenv": "^16.5.0"
+    "discord.js": "^14.13.0",
+    "express": "^4.18.2"
   }
 }

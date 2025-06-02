@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('./keep_alive');
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
@@ -11,6 +11,7 @@ const client = new Client({
 
 const OLD_CHANNEL_ID = process.env.OLD_CHANNEL_ID;
 const NEW_CHANNEL_ID = process.env.NEW_CHANNEL_ID;
+const TOKEN = process.env.DISCORD_TOKEN;
 
 async function fetchAllImages(channel) {
   const images = [];
@@ -44,8 +45,6 @@ async function postNostalgiaImage() {
   try {
     const oldChannel = await client.channels.fetch(OLD_CHANNEL_ID);
     const newChannel = await client.channels.fetch(NEW_CHANNEL_ID);
-
-    console.log("📂 Henter billeder...");
     const images = await fetchAllImages(oldChannel);
 
     if (images.length > 0) {
@@ -73,7 +72,6 @@ async function postNostalgiaImage() {
 
 client.once('ready', async () => {
   console.log(`✅ Logget ind som ${client.user.tag}`);
-  
   while (true) {
     await postNostalgiaImage();
     console.log("⏳ Venter 24 timer...");
@@ -81,4 +79,4 @@ client.once('ready', async () => {
   }
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(TOKEN);
